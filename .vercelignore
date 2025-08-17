@@ -44,3 +44,6 @@ windows/
 
 # Lock files (will be generated)
 *.lock
+
+# Flutter SDK files (not needed for deployment)
+.flutter/

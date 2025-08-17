@@ -8,6 +8,12 @@ if ! command -v flutter &> /dev/null; then
     exit 1
 fi
 
+# Check if Node.js is installed
+if ! command -v node &> /dev/null; then
+    echo "❌ Node.js is not installed. Please install Node.js first."
+    exit 1
+fi
+
 # Check if Vercel CLI is installed
 if ! command -v vercel &> /dev/null; then
     echo "📦 Installing Vercel CLI..."
@@ -18,12 +24,14 @@ echo "🔧 Getting Flutter dependencies..."
 flutter pub get
 
 echo "🏗️ Building Flutter web app..."
-flutter build web --release
+flutter build web --release --web-renderer html
 
 if [ $? -eq 0 ]; then
     echo "✅ Build successful!"
     echo "🚀 Deploying to Vercel..."
-    vercel --prod
+    
+    # Deploy to Vercel with proper configuration
+    vercel --prod --yes
 else
     echo "❌ Build failed!"
     exit 1

@@ -9,6 +9,14 @@ if errorlevel 1 (
     exit /b 1
 )
 
+REM Check if Node.js is installed
+node --version >nul 2>&1
+if errorlevel 1 (
+    echo ❌ Node.js is not installed. Please install Node.js first.
+    pause
+    exit /b 1
+)
+
 REM Check if Vercel CLI is installed
 vercel --version >nul 2>&1
 if errorlevel 1 (
@@ -20,7 +28,7 @@ echo 🔧 Getting Flutter dependencies...
 flutter pub get
 
 echo 🏗️ Building Flutter web app...
-flutter build web --release
+flutter build web --release --web-renderer html
 
 if errorlevel 1 (
     echo ❌ Build failed!
@@ -30,6 +38,6 @@ if errorlevel 1 (
 
 echo ✅ Build successful!
 echo 🚀 Deploying to Vercel...
-vercel --prod
+vercel --prod --yes
 
 pause

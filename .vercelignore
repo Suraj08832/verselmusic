@@ -5,10 +5,8 @@
 .packages
 .pub-cache/
 .pub/
-build/
 coverage/
 *.iml
-*.lock
 *.log
 
 # IDE specific
@@ -33,17 +31,24 @@ coverage/
 *.md
 docs/
 
-# Assets that are not needed for web
+# Platform specific (not needed for web)
 android/
 ios/
 macos/
 linux/
 windows/
 
-# Other
+# Large assets (will be built during deployment)
+assets/
 *.png
 *.jpg
 *.jpeg
 *.gif
 *.ico
 *.svg
+
+# Build artifacts (will be generated)
+build/
+
+# Lock files (will be generated)
+*.lock

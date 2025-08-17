@@ -38,17 +38,9 @@ macos/
 linux/
 windows/
 
-# Large assets (will be built during deployment)
-assets/
-*.png
-*.jpg
-*.jpeg
-*.gif
-*.ico
-*.svg
-
-# Build artifacts (will be generated)
-build/
+# Keep assets and build directory for deployment
+# assets/
+# build/
 
 # Lock files (will be generated)
 *.lock

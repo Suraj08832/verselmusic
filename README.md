@@ -31,6 +31,37 @@ A cross platform app for music streaming made with Flutter(Android, Windows, lin
 
 <a href="https://github.com/anandnet/Harmony-Music/releases/latest"><img src ="https://github.com/anandnet/Harmony-Music/blob/main/don_github.png" width = "250"></a> <a href= "https://f-droid.org/packages/com.anandnet.harmonymusic"><img src = "https://github.com/anandnet/Harmony-Music/blob/main/down_fdroid.png" width = '250'></a></a> 
 
+# Web Deployment (Vercel)
+This project can be deployed to Vercel for web access. Follow these steps:
+
+## Prerequisites
+- Flutter SDK installed
+- Vercel account
+- GitHub repository
+
+## Manual Deployment
+1. Build the web version:
+   ```bash
+   flutter build web --release
+   ```
+2. Deploy to Vercel:
+   ```bash
+   npx vercel --prod
+   ```
+
+## Automated Deployment (GitHub Actions)
+1. Set up Vercel secrets in your GitHub repository:
+   - `VERCEL_TOKEN`: Your Vercel API token
+   - `ORG_ID`: Your Vercel organization ID
+   - `PROJECT_ID`: Your Vercel project ID
+
+2. Push to main/master branch to trigger automatic deployment
+
+## Configuration Files
+- `vercel.json`: Vercel deployment configuration
+- `.vercelignore`: Files to exclude from deployment
+- `.github/workflows/vercel-deploy.yml`: GitHub Actions workflow
+
 # Translation
 <a href="https://hosted.weblate.org/engage/harmony-music/">
 <img src="https://hosted.weblate.org/widget/harmony-music/project-translations/multi-auto.svg" alt="Translation status" />
